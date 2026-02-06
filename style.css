@@ -1,0 +1,428 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(135deg, #ffd6f0 0%, #d4f0ff 50%, #fffacd 100%);
+    overflow-x: hidden;
+    cursor: none;
+}
+
+/* Custom Glowing Cursor */
+#cursor-glow {
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,182,255,0.6) 0%, rgba(182,255,255,0.3) 50%, transparent 70%);
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s;
+}
+
+/* Login Page */
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated Characters */
+.character {
+    position: absolute;
+    animation: float 3s ease-in-out infinite;
+}
+
+.boy {
+    left: 15%;
+    top: 20%;
+    font-size: 120px;
+    animation-delay: 0s;
+}
+
+.girl {
+    right: 15%;
+    top: 20%;
+    font-size: 120px;
+    animation-delay: 1s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+.title {
+    font-size: 4em;
+    background: linear-gradient(45deg, #ff6ec4, #7873f5, #00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(255,110,196,0.5);
+    margin-bottom: 20px;
+    animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% { filter: drop-shadow(0 0 10px rgba(255,110,196,0.8)); }
+    50% { filter: drop-shadow(0 0 25px rgba(120,115,245,0.8)); }
+}
+
+.login-container {
+    display: flex;
+    gap: 40px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(255,110,196,0.3);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    width: 320px;
+}
+
+.login-card h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    background: linear-gradient(45deg, #ff6ec4, #7873f5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.icon-dual {
+    font-size: 60px;
+    text-align: center;
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, #ff6ec4, #7873f5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 10px rgba(255,110,196,0.6));
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 2px solid rgba(255,110,196,0.4);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #ff6ec4;
+    box-shadow: 0 0 15px rgba(255,110,196,0.5);
+}
+
+.lets-rhyme-btn {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #ff6ec4, #7873f5);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.lets-rhyme-btn:hover {
+    transform: scale(1.05);
+}
+
+.lets-rhyme-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+    animation: shine 2s infinite;
+}
+
+@keyframes shine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Main Content */
+.main-content {
+    display: none;
+    min-height: 100vh;
+    padding: 30px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.voice-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.voice-btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(45deg, #ff6ec4, #7873f5);
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255,110,196,0.4);
+    transition: all 0.3s;
+}
+
+.voice-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255,110,196,0.6);
+}
+
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.category-btn {
+    padding: 15px 30px;
+    border: 2px solid rgba(255,110,196,0.5);
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s;
+    box-shadow: 0 0 15px rgba(255,110,196,0.3);
+}
+
+.category-btn:hover, .category-btn.active {
+    background: linear-gradient(45deg, #ff6ec4, #7873f5);
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(255,110,196,0.6);
+}
+
+.poems-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+.poem-card {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(255,110,196,0.3);
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.poem-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(255,110,196,0.5);
+}
+
+.poem-icon {
+    font-size: 80px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.poem-title {
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #ff6ec4, #7873f5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: bold;
+}
+
+/* Poem Modal */
+.poem-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #ffd6f0 0%, #d4f0ff 100%);
+    border-radius: 30px;
+    padding: 40px;
+    max-width: 700px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 0 50px rgba(255,110,196,0.8);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 35px;
+    cursor: pointer;
+    background: linear-gradient(45deg, #ff6ec4, #7873f5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: transform 0.3s;
+}
+
+.close-btn:hover {
+    transform: scale(1.2);
+}
+
+.poem-text {
+    font-size: 20px;
+    line-height: 1.8;
+    margin: 20px 0;
+}
+
+.poem-text .line {
+    margin: 10px 0;
+    transition: all 0.3s;
+}
+
+.poem-text .highlight {
+    background: linear-gradient(45deg, #ffeb3b, #ff6ec4);
+    padding: 2px 5px;
+    border-radius: 5px;
+    animation: highlightPulse 0.5s;
+}
+
+@keyframes highlightPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Cracker Effect */
+.cracker {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+}
+
+@keyframes explode {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--tx), var(--ty)) scale(0);
+        opacity: 0;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5em;
+    }
+    
+    .login-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .boy, .girl {
+        font-size: 80px;
+    }
+    
+    .boy {
+        left: 5%;
+        top: 10%;
+    }
+    
+    .girl {
+        right: 5%;
+        top: 10%;
+    }
+    
+    .poems-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .modal-content {
+        padding: 30px 20px;
+        max-width: 90%;
+    }
+    
+    .voice-controls {
+        gap: 10px;
+    }
+    
+    .voice-btn {
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 2em;
+    }
+    
+    .login-card {
+        width: 280px;
+        padding: 30px 20px;
+    }
+    
+    .category-btn {
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+    
+    .poem-card {
+        padding: 20px;
+    }
+    
+    .poem-icon {
+        font-size: 60px;
+    }
+}

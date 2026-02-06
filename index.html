@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poetry Paradise 🌈</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="cursor-glow"></div>
+
+    <!-- Login Page -->
+    <div class="login-page" id="loginPage">
+        <div class="character boy">👦</div>
+        <div class="character girl">👧</div>
+        
+        <h1 class="title">✨ Poetry Paradise ✨</h1>
+        <p style="font-size: 24px; text-align: center; color: #7873f5; margin-bottom: 30px;">Where Words Dance and Rhymes Play!</p>
+        
+        <div class="login-container">
+            <div class="login-card">
+                <div class="icon-dual">👨‍👧‍👦</div>
+                <h2>Parent</h2>
+                <input type="text" placeholder="Parent Name" id="parentName">
+                <input type="text" placeholder="Child Name" id="childname">
+                <input type="text" placeholder="Child Age" id="childage">
+                <button class="lets-rhyme-btn" onclick="login('parent')">Let's Rhym! 🎵</button>
+            </div>
+            
+            <div class="login-card">
+                <div class="icon-dual">👩‍🏫</div>
+                <h2>Teacher</h2>
+                <input type="text" placeholder="Teacher Name" id="teacherName">
+                <input type="text" placeholder="School Name" id="schoolname">
+                <input type="text" placeholder="Class" id="class">
+                <button class="lets-rhyme-btn" onclick="login('teacher')">Let's Rhym! 🎵</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <div class="header">
+            <h1 class="title">🌈 Poetry Paradise 🌈</h1>
+            <div class="voice-controls">
+                <button class="voice-btn" onclick="setVoice('female')">👩 Female Voice</button>
+                <button class="voice-btn" onclick="setVoice('male')">👨 Male Voice</button>
+                <button class="voice-btn" onclick="stopReading()">⏹️ Stop</button>
+            </div>
+        </div>
+
+        <div class="categories">
+            <button class="category-btn active" onclick="filterCategory('all')">🌟 All Poems</button>
+            <button class="category-btn" onclick="filterCategory('animals')">🦁 Animals</button>
+            <button class="category-btn" onclick="filterCategory('nature')">🌳 Nature</button>
+            <button class="category-btn" onclick="filterCategory('fun')">😄 Fun & Silly</button>
+            <button class="category-btn" onclick="filterCategory('bedtime')">🌙 Bedtime</button>
+            <button class="category-btn" onclick="filterCategory('family')">👨‍👩‍👧 Family</button>
+        </div>
+
+        <div class="poems-grid" id="poemsGrid"></div>
+    </div>
+
+    <!-- Poem Modal -->
+    <div class="poem-modal" id="poemModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">×</span>
+            <div id="modalContent"></div>
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="voice-btn" onclick="readPoem()">🔊 Read Poem</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
